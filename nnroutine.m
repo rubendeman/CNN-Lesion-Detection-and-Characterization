@@ -3,9 +3,8 @@ imds = imageDatastore(fullfile('file/location'),...
     'ReadFcn',@rubenread)
 
 trainingNumFiles = 1500;
-testNumFiles = 50;
 rng(1) % For reproducibility
-[trainData,testData,imdsValidation] = splitEachLabel(imds, trainingNumFiles, testNumFiles);
+[trainData,testData] = splitEachLabel(imds, trainingNumFiles);
 
 layers = [imageInputLayer([128 128 1])
     convolution2dLayer(3,64)
@@ -29,10 +28,7 @@ layers = [imageInputLayer([128 128 1])
 
 options = trainingOptions('sgdm','MaxEpochs',100, ...
     'InitialLearnRate',0.001,...
-    'MiniBatchSize',80, ...
-    'ValidationData',imdsValidation, ...
-    'ValidationFrequency',30, ...
-    'Plots','training-progress');
+    'MiniBatchSize',80,'Plots','training-progress');
 
 convnet = trainNetwork(trainData,layers,options);
 
