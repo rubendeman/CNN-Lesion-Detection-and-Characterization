@@ -19,7 +19,7 @@ layers = [imageInputLayer([128 128 1])
     convolution2dLayer(3,256)
     reluLayer
     maxPooling2dLayer(3,'Stride',2)
-fullyConnectedLayer(2000)
+    fullyConnectedLayer(2000)
     reluLayer
     dropoutLayer
     fullyConnectedLayer(4)
@@ -28,7 +28,7 @@ fullyConnectedLayer(2000)
 
 options = trainingOptions('sgdm','MaxEpochs',100, ...
     'InitialLearnRate',0.001,...
-'MiniBatchSize',80,'Plots','training-progress');
+    'MiniBatchSize',80,'Plots','training-progress');
 
 convnet = trainNetwork(trainData,layers,options);
 
@@ -37,11 +37,5 @@ TTest = testData.Labels;
 FTest = testData.Files;
 YTest=YTest';
 TTest=TTest';
-accuracy = sum(YTest == TTest)/numel(TTest)
+accuracy = sum(YTest == TTest)/numel(TTest);
 txtwriter;
-% xls=[TTest,YTest,FTest];
-% save('C:/Users/Ruben/Desktop/CNN_results','xls');
-
-% YTest2 = classify(convnet,trainData);
-% TTest2 = trainData.Labels;
-% accuracy2 = sum(YTest2 == TTest2)/numel(TTest2)
