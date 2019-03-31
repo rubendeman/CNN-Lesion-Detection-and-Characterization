@@ -6,7 +6,7 @@ imgenerator.m can be used to generate large numbers of images with geometric sha
 
 Convlutional Neural Network
 ---------------------------
-nnroutine.m is the main script to train, test, and validate the CNN. The script creates images of each lesion type in separate folders. After training and testing of the CNN, txtwriter.m is called and saves the results file in the specified location.
+nnroutine.m is the main script to train, test, and validate the CNN. The script reads images of each lesion type in separate folders. After training and testing of the CNN, txtwriter.m is called and saves the results file in the specified location.
 
 Human Observers
 ---------------
