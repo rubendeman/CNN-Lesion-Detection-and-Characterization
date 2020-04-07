@@ -1,4 +1,4 @@
-# Simulated-Lesion-Detection-and-Characterization
+# CNN-Lesion-Detection-and-Characterization
 
 Image Generation
 ----------------
